@@ -7,9 +7,9 @@ Build a floating, development-only control that swaps the target between its cur
 The exploration must be easy to remove completely, because it is temporary code inside a real codebase.
 
 1. Check `git status` first. Tell the user about uncommitted changes in files you need to touch.
-2. Put all exploration code in one folder named `__visual-explore__`, next to the target component. Follow a different location only if project conventions require it.
+2. Put all exploration code in one folder named `__variant-exploration__`, next to the target component. Follow a different location only if project conventions require it.
 3. Add a `README.md` to that folder. List every file outside the folder that you changed, and how to undo each change.
-4. Change as little existing code as possible, ideally one render site. Mark each change with a `visual-explore` comment so that a search finds it.
+4. Change as little existing code as possible, ideally one render site. Mark each change with a `variant-exploration` comment so that a search finds it.
    - Check who else uses the target and the components it wraps. Place the swap at a render site that only the explored page uses, so that other pages keep the original design. If that is not possible, tell the user which pages also change.
 5. Leave the original component's code intact, and use it as the "Current" option.
 
@@ -32,7 +32,7 @@ The exploration must be easy to remove completely, because it is temporary code 
 ## Shape in React
 
 ```tsx
-// visual-explore: temporary exploration code, do not ship
+// variant-exploration: temporary exploration code, do not ship
 const options = [
   { id: "current", name: "Current", idea: "Existing design", render: () => <Original {...props} /> },
   { id: "a", name: "Scan-first", idea: "Compresses rows for faster comparison", render: () => <VariantA {...props} /> },
@@ -49,7 +49,7 @@ const options = [
 
 ## Cleanup
 
-1. Delete every `__visual-explore__` folder.
+1. Delete every `__variant-exploration__` folder.
 2. Undo the changes listed in its `README.md`.
-3. Search the project for `visual-explore` and `__visual-explore__`. The search must find nothing, apart from intended references in this skill or its installation.
+3. Search the project for `variant-exploration` and `__variant-exploration__`. The search must find nothing, apart from intended references in this skill or its installation.
 4. Run the type check again.

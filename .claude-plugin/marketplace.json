@@ -1,11 +1,11 @@
 {
-  "name": "visual-explore",
+  "name": "variant-exploration",
   "owner": { "name": "Diego430" },
   "description": "Claude Code plugin for comparing design variants of existing UI",
   "plugins": [
     {
-      "name": "visual-explore",
-      "source": "./plugins/visual-explore",
+      "name": "variant-exploration",
+      "source": "./plugins/variant-exploration",
       "description": "Generates design variants of existing UI, from similar to radical, as an in-app switcher or an Artifact"
     }
   ]

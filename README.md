@@ -1,4 +1,4 @@
-# Visual Explore
+# Variant Exploration
 
 A Claude Code skill that turns an existing feature or component into a set of design variants you can compare, then applies the one you choose.
 
@@ -7,8 +7,8 @@ A Claude Code skill that turns an existing feature or component into a set of de
 Run these commands in Claude Code:
 
 ```text
-/plugin marketplace add Diego430/visual-explore
-/plugin install visual-explore@visual-explore
+/plugin marketplace add Diego430/variant-exploration
+/plugin install variant-exploration@variant-exploration
 ```
 
 ## Use
@@ -22,7 +22,7 @@ Show me other ways the pricing card could look
 Or run the skill directly. All arguments are optional:
 
 ```text
-/visual-explore:visual-explore PricingCard moderate app
+/variant-exploration:variant-exploration PricingCard moderate app
 ```
 
 ## How it works
@@ -56,7 +56,7 @@ Every exploration includes at least one variant of each type, unless you ask oth
 
 ## What it changes
 
-The in-app switcher adds temporary code to your project, in `__visual-explore__` folders and at marked render sites. The skill does not commit this code. Do not ship the exploration code: review the diff before you commit.
+The in-app switcher adds temporary code to your project, in `__variant-exploration__` folders and at marked render sites. The skill does not commit this code. Do not ship the exploration code: review the diff before you commit.
 
 ## License
 

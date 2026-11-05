@@ -1,10 +1,10 @@
 ---
-name: visual-explore
+name: variant-exploration
 description: Creates a visual exploration of an existing feature, screen, or component by reading its current implementation and generating design variants to compare, from subtle refinements to radical rethinks. Delivers the variants as a live in-app switcher or as a shareable Artifact, and recommends the better fit. Use this whenever the user wants to explore, compare, or try design options, alternatives, or directions for UI that already exists, including requests like "show me other ways this could look", "give me some variants of this card", or "how else could we design this page", even if they do not say "exploration". Do not use it to build new UI from scratch or to apply one already-decided design change.
 argument-hint: "[component or feature] [similar|moderate|wide] [app|artifact]"
 ---
 
-# Visual Explore
+# Variant Exploration
 
 Turn an existing feature or component into a set of distinct design variants that the user can compare, then apply the one they choose.
 

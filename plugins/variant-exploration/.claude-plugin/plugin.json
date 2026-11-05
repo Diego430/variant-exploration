@@ -1,5 +1,5 @@
 {
-  "name": "visual-explore",
+  "name": "variant-exploration",
   "description": "Generates design variants of existing UI, from similar to radical, as an in-app switcher or an Artifact",
   "version": "0.1.0",
   "author": { "name": "Diego430" },
