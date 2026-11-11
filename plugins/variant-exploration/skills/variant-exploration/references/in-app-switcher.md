@@ -18,6 +18,7 @@ The exploration must be easy to remove completely, because it is temporary code 
 - Render only in development, using the framework's own check. Production builds must render the original component and include no switcher.
 - Show "Current" and every variant as buttons labeled with the variant letter, type tag, and name, such as "B `Different` Cards instead of table", with `aria-pressed` on the active one.
 - Show the active variant's letter, type tag, name, and one-line idea.
+- Show the source tag next to the type tag on plugin variants, such as "E `Different` `via impeccable` Editorial layout".
 - Use the variant letter as the query parameter value, such as `?variant=b`.
 - Let the user collapse the panel, so that it does not hide the design being judged.
 - Store the active variant in a URL query parameter, so that it survives a reload and can be linked.
@@ -37,6 +38,7 @@ The exploration must be easy to remove completely, because it is temporary code 
 const options = [
   { id: "current", tag: "Reference", name: "Current", idea: "Existing design", render: () => <Original {...props} /> },
   { id: "a", tag: "Similar", name: "Denser rows", idea: "Compresses rows for faster comparison", render: () => <VariantA {...props} /> },
+  { id: "e", tag: "Different", source: "impeccable", name: "Editorial layout", idea: "Leads with the plan story", render: () => <VariantE {...props} /> },
 ];
 ```
 

@@ -39,9 +39,10 @@ Or run the skill directly. All arguments are optional:
 1. Reads the current component, its styles, and its data.
 2. Asks a few short questions, one at a time, to find what is wrong with the current version, if anything. The variants then aim at that problem. Skip the questions if you only want to see options.
 3. Asks how far the variants should move from the current version.
-4. Recommends a delivery method and lets you choose.
-5. Builds the variants, with the current version as reference.
-6. After you choose a variant, offers to apply it and remove the exploration code.
+4. If design plugins are installed, such as Impeccable or Frontend Design, asks whether to build some variants with them. Plugin variants can replace some of the planned variants or come in addition to them.
+5. Recommends a delivery method and lets you choose.
+6. Builds the variants, with the current version as reference.
+7. After you choose a variant, offers to apply it and remove the exploration code.
 
 ### Difference levels
 
