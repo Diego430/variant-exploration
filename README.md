@@ -2,6 +2,15 @@
 
 A Claude Code skill that turns an existing feature or component into a set of design variants you can compare, then applies the one you choose.
 
+## Why use it
+
+Design questions are easier to answer when you can see the options. Ask "how else could this look?" and get six real variants of your own UI, built from your actual code, styles, and data.
+
+- **Starts from what you have.** Variants build on your current component, so they fit your product and are ready to apply.
+- **From safe tweaks to bold ideas.** Each exploration mixes small refinements with new layouts and radical concepts, so you see the full range before you decide.
+- **Compare side by side.** Switch between variants live on the real page, or share a single page with your team.
+- **Clean finish.** Choose a variant and the skill applies it, then removes the exploration code.
+
 ## Install
 
 Run these commands in Claude Code:
