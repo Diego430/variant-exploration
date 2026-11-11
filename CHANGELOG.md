@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/Diego430/variant-exploration/compare/v0.3.0...v0.4.0) (2026-11-11)
+
+
+### Features
+
+* replace problem interview with a single short question ([#3](https://github.com/Diego430/variant-exploration/issues/3)) ([ee7e5f7](https://github.com/Diego430/variant-exploration/commit/ee7e5f7919b18a8a56db854f21d8a9d3017b4b13))
+
 ## 0.3.0 (2026-11-11)
 
 ### Features
