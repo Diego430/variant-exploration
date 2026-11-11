@@ -37,10 +37,11 @@ Or run the skill directly. All arguments are optional:
 ## How it works
 
 1. Reads the current component, its styles, and its data.
-2. Asks how far the variants should move from the current version.
-3. Recommends a delivery method and lets you choose.
-4. Builds the variants, with the current version as reference.
-5. After you choose a variant, offers to apply it and remove the exploration code.
+2. Asks a few short questions, one at a time, to find what is wrong with the current version, if anything. The variants then aim at that problem. Skip the questions if you only want to see options.
+3. Asks how far the variants should move from the current version.
+4. Recommends a delivery method and lets you choose.
+5. Builds the variants, with the current version as reference.
+6. After you choose a variant, offers to apply it and remove the exploration code.
 
 ### Difference levels
 
