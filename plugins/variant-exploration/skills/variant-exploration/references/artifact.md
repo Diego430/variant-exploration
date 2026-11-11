@@ -33,7 +33,7 @@ Use realistic sample content. Do not include secrets, internal URLs, customer da
 - Put the current version first, labeled as the reference
 - Give each variant its letter, type tag, name, one-line idea, and main trade-off. Make the letter large and the type tag visible on every variant, in both the side-by-side and the focused view
 - Show the source tag next to the type tag on variants built with a design plugin
-- Let the user jump to a variant by its letter
+- Let the user jump to a variant from a selector at the top of the page. Label each selector option with the letter and the name, such as "B · Cards instead of table", never with the letter alone. Label the current version "Current". At phone width, the name may wrap or the selector may become a dropdown, but the name stays visible
 - Offer a side-by-side view and a focused view of one variant at a time
 - Make controls and main interactions work, when the interaction is part of the design
 - Keep the page usable at phone width, without horizontal page scroll

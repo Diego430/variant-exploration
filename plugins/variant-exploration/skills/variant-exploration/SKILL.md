@@ -30,37 +30,17 @@ Variants that ignore the real component look like generic templates, so this ste
 
 Find out what is wrong with the current version, if anything. Variants that answer a real problem are easier to compare and to choose from than variants that only change the look.
 
-Skip this step if the request already names the problem, such as "users miss the upgrade button", or if the user says they only want to see options. Also skip it if the user asks to skip the questions. In that case, write the problem statement below as your own guess and continue.
+Skip this step if the request already names the problem, such as "users miss the upgrade button", or if the user says they only want to see options. Also skip it if the user asks to skip the questions. In that case, use your own guess as the problem and continue.
 
-Otherwise, interview the user:
+Otherwise, ask one short question. Do not interview the user. Guess the problem from what you read in step 1, and ask with `AskUserQuestion` when available, or as a plain question:
 
-- Ask one question per message, and wait for the answer. End each message with that single question, without a list of example answers.
-- Ground each question in what you read in step 1. A guess they can correct often works better than an open question, such as "I see the price is below the fold on mobile. Is that the problem?"
-- Ask about a real moment, such as "Walk me through the last time this card got in the way", rather than about preferences in general.
-- When an answer is vague, such as "it looks off" or "it feels cluttered", ask what they noticed and where.
-- If the user says "just guess" or "what do you think?", propose a concrete problem from the code and ask them to confirm it.
+- Question: one sentence, such as "What should the variants fix?"
+- Options: one or two concrete problems you found in the code, such as "Price is below the fold on mobile", and **Just show options**. Keep each description to a few words.
+- The user can describe another problem through "Other".
 
-Stay inside this scope:
+Ask a follow-up only if the answer does not tell you what to fix. Ask at most one, in one sentence. Do not play back a problem statement for confirmation.
 
-- **Symptom:** what goes wrong, and when. For example, users miss something, misread something, or take too long.
-- **Who:** which users or which situations, such as mobile, first visit, or large data sets.
-- **Evidence:** what they saw, such as feedback, metrics, or their own use. Accept "only a feeling", and record it as such.
-- **Success:** how they will know a variant fixes the problem.
-- **Fixed points:** what must not change, such as content, brand rules, or behavior other screens depend on.
-- **References:** designs they liked or disliked elsewhere, if they mention any.
-
-Do not ask about the difference level, design plugins, or the delivery method here. Steps 3 to 5 cover them.
-
-Stop when you can state the problem in one sentence, usually after three to five questions. "There is no problem; I want to see options" is a valid result. In that case, stop asking.
-
-Play back a short problem statement and ask what is wrong or missing:
-
-- **Problem:** one sentence, or "None, open exploration"
-- **Who and when:** the affected users and situations
-- **Success:** how to judge a variant
-- **Fixed:** what the variants must keep
-
-Mark each guess as your guess. Use the confirmed statement in step 6 to aim the variants, and in step 8 to explain your pick. If there is no problem, plan the variants for range, as usual.
+Write the result as one line: **Problem:** the chosen problem, or "None, open exploration". Use it in step 6 to aim the variants, and in step 8 to explain your pick. If there is no problem, plan the variants for range, as usual.
 
 ### 3. Ask for the difference level
 
@@ -162,7 +142,7 @@ Give each Similar and Different variant its own main axis:
 
 Reuse an axis only when the count requires it, and then make the ideas clearly distinct.
 
-If step 2 found a problem, make each variant attack that problem through its own axis, and keep the fixed points. State in the idea line how the variant addresses the problem.
+If step 2 found a problem, make each variant attack that problem through its own axis,. State in the idea line how the variant addresses the problem.
 
 Before building, review the plan:
 
@@ -192,7 +172,7 @@ If the real app cannot be reached, for example because a login blocks it, run th
 
 ### 8. Present the variants
 
-Tell the user how to open the exploration. Report each check as passed, failed, unavailable, or blocked, and do not present an unavailable check as passed. Then list the current version and each variant in letter order, with its letter, type tag, source tag if any, name, idea, and main trade-off. For example: "**B** `Different` Cards instead of table: shows each plan as a card so that users compare features faster. Trade-off: ...". Give your own pick by letter and the reason. If step 2 found a problem, judge the pick against its success criterion. Ask which variant they prefer, by letter. Combinations are welcome, such as the layout of B with the density of D.
+Tell the user how to open the exploration. Report each check as passed, failed, unavailable, or blocked, and do not present an unavailable check as passed. Then list the current version and each variant in letter order, with its letter, type tag, source tag if any, name, idea, and main trade-off. For example: "**B** `Different` Cards instead of table: shows each plan as a card so that users compare features faster. Trade-off: ...". Give your own pick by letter and the reason. If step 2 found a problem, judge the pick by how well it fixes that problem. Ask which variant they prefer, by letter. Combinations are welcome, such as the layout of B with the density of D.
 
 ### 9. Offer to apply the choice
 
