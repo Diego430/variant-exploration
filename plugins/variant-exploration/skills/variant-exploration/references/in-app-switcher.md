@@ -16,7 +16,7 @@ The exploration must be easy to remove completely, because it is temporary code 
 ## Switcher behavior
 
 - Render only in development, using the framework's own check. Production builds must render the original component and include no switcher.
-- Show "Current" and every variant as buttons labeled with the variant letter, type tag, and name, such as "B `Different` Cards instead of table", with `aria-pressed` on the active one.
+- Show "Current" and every variant as buttons labeled with the variant letter, type tag, and name, such as "B `Different` Cards instead of table", with `aria-pressed` on the active one. Never label a button with the letter alone. The name must stay visible, also when the panel is narrow.
 - Show the active variant's letter, type tag, name, and one-line idea.
 - Show the source tag next to the type tag on plugin variants, such as "E `Different` `via impeccable` Editorial layout".
 - Use the variant letter as the query parameter value, such as `?variant=b`.
