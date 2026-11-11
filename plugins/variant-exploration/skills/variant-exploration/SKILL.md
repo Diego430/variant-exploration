@@ -26,7 +26,43 @@ Read enough to design from what exists:
 
 Variants that ignore the real component look like generic templates, so this step sets the quality of everything after it.
 
-### 2. Ask for the difference level
+### 2. Find the problem
+
+Find out what is wrong with the current version, if anything. Variants that answer a real problem are easier to compare and to choose from than variants that only change the look.
+
+Skip this step if the request already names the problem, such as "users miss the upgrade button", or if the user says they only want to see options. Also skip it if the user asks to skip the questions. In that case, write the problem statement below as your own guess and continue.
+
+Otherwise, interview the user:
+
+- Ask one question per message, and wait for the answer. End each message with that single question, without a list of example answers.
+- Ground each question in what you read in step 1. A guess they can correct often works better than an open question, such as "I see the price is below the fold on mobile. Is that the problem?"
+- Ask about a real moment, such as "Walk me through the last time this card got in the way", rather than about preferences in general.
+- When an answer is vague, such as "it looks off" or "it feels cluttered", ask what they noticed and where.
+- If the user says "just guess" or "what do you think?", propose a concrete problem from the code and ask them to confirm it.
+
+Stay inside this scope:
+
+- **Symptom:** what goes wrong, and when. For example, users miss something, misread something, or take too long.
+- **Who:** which users or which situations, such as mobile, first visit, or large data sets.
+- **Evidence:** what they saw, such as feedback, metrics, or their own use. Accept "only a feeling", and record it as such.
+- **Success:** how they will know a variant fixes the problem.
+- **Fixed points:** what must not change, such as content, brand rules, or behavior other screens depend on.
+- **References:** designs they liked or disliked elsewhere, if they mention any.
+
+Do not ask about the difference level, design plugins, or the delivery method here. Steps 3 to 5 cover them.
+
+Stop when you can state the problem in one sentence, usually after three to five questions. "There is no problem; I want to see options" is a valid result. In that case, stop asking.
+
+Play back a short problem statement and ask what is wrong or missing:
+
+- **Problem:** one sentence, or "None, open exploration"
+- **Who and when:** the affected users and situations
+- **Success:** how to judge a variant
+- **Fixed:** what the variants must keep
+
+Mark each guess as your guess. Use the confirmed statement in step 6 to aim the variants, and in step 8 to explain your pick. If there is no problem, plan the variants for range, as usual.
+
+### 3. Ask for the difference level
 
 Skip this question if the user already gave a level. Treat a request to "go radical" as Wide. Otherwise ask with `AskUserQuestion` when available, or as a plain question. Describe each level in terms of the actual component, and show its mix.
 
@@ -48,9 +84,39 @@ The level sets how many variants of each type to build. The default is 6 variant
 
 Every exploration includes at least one variant of each type, because even a narrow request benefits from seeing one distant option. If the user asks for another number, scale the mix to that number and keep this minimum. For example, 3 variants are always 1 Similar, 1 Different, and 1 Radical.
 
-The user's explicit request overrides the minimum, such as "no radical variants" or "only similar ones". If the user asks for only 2 variants, ask which 2 types they want. Label each variant with its type, so that the user can see the mix.
+The user's explicit request overrides the minimum, such as "no radical variants" or "only similar ones". If the user asks for only 2 variants, ask which 2 types they want. Label each variant with its type, so that the user can see the mix. Step 6 defines the full set of labels.
 
-### 3. Recommend a delivery method
+If step 2 found a problem, describe each level by what it can do about that problem. For example, Similar may fix a missed button through emphasis alone, while Different may move it.
+
+### 4. Offer design plugins
+
+Check whether design plugins are installed. Other design tools can widen the range of the exploration, because each one brings its own design habits.
+
+Find the installed plugins and skills:
+
+- The skill list in your context, where plugin skills have names such as `plugin:skill`
+- `~/.claude/plugins/installed_plugins.json`, when you can read it
+
+A plugin is design-related when its description covers visual design, UI, frontend styling, design systems, or a design tool, such as Figma. Do not count this skill, and do not count plugins for other work, such as commits, reviews, or tickets. If no design plugin is installed, skip this step and do not mention it.
+
+Otherwise, ask with `AskUserQuestion` when available, or as a plain question. Name each design plugin you found, with a few words on what it does. Offer at least these options:
+
+- **Replace some variants:** build some of the planned variants with the plugins. The total stays the same.
+- **Add variants:** build extra variants with the plugins, beside the variants from step 3.
+- **No plugins:** build all variants with this skill only.
+
+If you found more than one design plugin, ask in the same call which plugins to use, as a multiple-choice question. If the user asked to skip the questions, do not use plugins, and name them in one line when you present the variants.
+
+Plan the plugin variants:
+
+- **Count:** build one variant for each chosen plugin, unless the user gives another number.
+- **Replace:** take the slots from the type with the most variants, and keep at least one variant of each type. The plugin variant keeps the type of the slot it takes.
+- **Add:** give each extra variant the type that fits what the plugin does best. Give it the next free letter.
+- **Source tag:** add a tag that names the plugin, such as `via impeccable`, next to the type tag. Show it wherever the variant appears. Variants without a source tag come from this skill.
+
+To build a plugin variant, load the plugin's skill and follow its design guidance for that variant only. Give the plugin the problem statement from step 2, so that it does not interview the user again. The rules of this exploration still apply: the same content, the type limits, no new dependencies, and no changes to production code. Skip any plugin step that conflicts with them, such as writing to production files or creating its own documentation.
+
+### 5. Recommend a delivery method
 
 Skip the question if the user already chose a method. If their choice differs from what you would recommend, say so in one line and follow their choice.
 
@@ -72,11 +138,20 @@ Recommend the **Artifact** when comparing concepts matters more than integration
 
 If the signals tie, recommend the in-app switcher at Similar or Moderate, and the Artifact at Wide. If one method is impossible, for example because the app cannot run, offer the other and explain why.
 
-### 4. Plan the variants
+### 6. Plan the variants
 
 First, write one sentence that records the current identity: real color values, fonts, layout, and surface treatment. Use values from the code, not impressions such as "clean". Similar variants keep this identity. Different variants keep its visual language but may change structure. Radical variants may leave it, and must explain why from the product's purpose.
 
-Then give each variant a short name and a one-line idea, such as "Scan-first: compresses each row so that users compare prices faster". Give each Similar and Different variant its own main axis:
+Then label each variant:
+
+- **Letter:** assign letters in build order, starting at A: A, B, C, and so on. The current version has no letter and is always "Current". Keep each letter fixed for the whole exploration, including after rework, so that the user can refer to a variant as "B" at any time. If a variant is replaced, the new variant takes the old letter.
+- **Name:** two to four words that state what changes compared with the current version, such as "Denser rows", "Cards instead of table", or "Price leads". The name states the change, not a quality, so avoid names such as "Cleaner" or "Modern". Two variants must not share a name.
+- **Idea:** one line that explains the change and why it helps, such as "Compresses each row so that users compare prices faster".
+- **Type tag:** a visible tag that shows how far the variant moves from the current version: Similar, Different, or Radical. Give each type its own consistent tag style, so that the user sees the mix at a glance. The current version has no type tag; label it "Reference".
+
+Show the letter, the name, the type tag, and the source tag of plugin variants wherever the variant appears: in the plan, in the switcher or the Artifact, and in the final presentation.
+
+Give each Similar and Different variant its own main axis:
 
 - Hierarchy
 - Layout
@@ -86,6 +161,8 @@ Then give each variant a short name and a one-line idea, such as "Scan-first: co
 - Interaction
 
 Reuse an axis only when the count requires it, and then make the ideas clearly distinct.
+
+If step 2 found a problem, make each variant attack that problem through its own axis, and keep the fixed points. State in the idea line how the variant addresses the problem.
 
 Before building, review the plan:
 
@@ -102,7 +179,7 @@ Apply these rules to every variant:
 - Cover the states where the design choice matters
 - Add no dependencies without asking
 
-### 5. Build the exploration
+### 7. Build the exploration
 
 Read the guide for the chosen method and follow it:
 
@@ -113,11 +190,11 @@ Keep checking bounded, because open-ended self-review costs time and rarely impr
 
 If the real app cannot be reached, for example because a login blocks it, run the project's own checks, report the browser check as blocked, and list what the user must check. Do not build substitute setups such as throwaway test harnesses, static renders, or stub APIs. They cost more than they prove, and the user's review in the running app answers the question.
 
-### 6. Present the variants
+### 8. Present the variants
 
-Tell the user how to open the exploration. Report each check as passed, failed, unavailable, or blocked, and do not present an unavailable check as passed. Then list the current version and each variant with its name, idea, and main trade-off. Give your own pick and the reason. Ask which variant they prefer. Combinations are welcome, such as the layout of B with the density of D.
+Tell the user how to open the exploration. Report each check as passed, failed, unavailable, or blocked, and do not present an unavailable check as passed. Then list the current version and each variant in letter order, with its letter, type tag, source tag if any, name, idea, and main trade-off. For example: "**B** `Different` Cards instead of table: shows each plan as a card so that users compare features faster. Trade-off: ...". Give your own pick by letter and the reason. If step 2 found a problem, judge the pick against its success criterion. Ask which variant they prefer, by letter. Combinations are welcome, such as the layout of B with the density of D.
 
-### 7. Offer to apply the choice
+### 9. Offer to apply the choice
 
 After the user chooses, confirm before changing production code. On confirmation:
 

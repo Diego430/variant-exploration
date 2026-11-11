@@ -2,6 +2,15 @@
 
 A Claude Code skill that turns an existing feature or component into a set of design variants you can compare, then applies the one you choose.
 
+## Why use it
+
+Design questions are easier to answer when you can see the options. Ask "how else could this look?" and get six real variants of your own UI, built from your actual code, styles, and data.
+
+- **Starts from what you have.** Variants build on your current component, so they fit your product and are ready to apply.
+- **From safe tweaks to bold ideas.** Each exploration mixes small refinements with new layouts and radical concepts, so you see the full range before you decide.
+- **Compare side by side.** Switch between variants live on the real page, or share a single page with your team.
+- **Clean finish.** Choose a variant and the skill applies it, then removes the exploration code.
+
 ## Install
 
 Run these commands in Claude Code:
@@ -28,10 +37,12 @@ Or run the skill directly. All arguments are optional:
 ## How it works
 
 1. Reads the current component, its styles, and its data.
-2. Asks how far the variants should move from the current version.
-3. Recommends a delivery method and lets you choose.
-4. Builds the variants, with the current version as reference.
-5. After you choose a variant, offers to apply it and remove the exploration code.
+2. Asks a few short questions, one at a time, to find what is wrong with the current version, if anything. The variants then aim at that problem. Skip the questions if you only want to see options.
+3. Asks how far the variants should move from the current version.
+4. If design plugins are installed, such as Impeccable or Frontend Design, asks whether to build some variants with them. Plugin variants can replace some of the planned variants or come in addition to them.
+5. Recommends a delivery method and lets you choose.
+6. Builds the variants, with the current version as reference.
+7. After you choose a variant, offers to apply it and remove the exploration code.
 
 ### Difference levels
 
@@ -49,10 +60,14 @@ The level sets the mix of variant types. The default is 6 variants:
 
 Every exploration includes at least one variant of each type, unless you ask otherwise, such as "no radical variants". You can also ask for another number of variants. The skill scales the mix to that number.
 
+### Variant labels
+
+Each variant gets a letter (A, B, C, ...) so that you can refer to it, for example "use B with the spacing of D". The letter stays fixed for the whole exploration. Each variant's name states what changes compared with the current version, such as "Cards instead of table". A type tag (Similar, Different, or Radical) shows how far the variant moves from the current version.
+
 ### Delivery methods
 
 - **In-app switcher:** a development-only panel on the real page swaps variants live. Best when real data, app state, or page context affects the design.
-- **Artifact:** a single page shows the variants side by side, without repository changes. Best for concept exploration and for sharing with people who do not run the app. Without the `Artifact` tool, the skill writes a standalone HTML file.
+- **Artifact:** a single page shows the variants side by side, without repository changes. Best for concept exploration and for sharing with people who do not run the app. The page uses your product's color scheme. If your product has light and dark schemes, the page has a switcher between them. Otherwise it shows only your product's scheme. Without the `Artifact` tool, the skill writes a standalone HTML file.
 
 ## What it changes
 
