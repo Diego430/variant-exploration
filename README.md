@@ -49,10 +49,14 @@ The level sets the mix of variant types. The default is 6 variants:
 
 Every exploration includes at least one variant of each type, unless you ask otherwise, such as "no radical variants". You can also ask for another number of variants. The skill scales the mix to that number.
 
+### Variant labels
+
+Each variant gets a letter (A, B, C, ...) so that you can refer to it, for example "use B with the spacing of D". The letter stays fixed for the whole exploration. Each variant's name states what changes compared with the current version, such as "Cards instead of table". A type tag (Similar, Different, or Radical) shows how far the variant moves from the current version.
+
 ### Delivery methods
 
 - **In-app switcher:** a development-only panel on the real page swaps variants live. Best when real data, app state, or page context affects the design.
-- **Artifact:** a single page shows the variants side by side, without repository changes. Best for concept exploration and for sharing with people who do not run the app. Without the `Artifact` tool, the skill writes a standalone HTML file.
+- **Artifact:** a single page shows the variants side by side, without repository changes. Best for concept exploration and for sharing with people who do not run the app. The page uses your product's color scheme. If your product has light and dark schemes, the page has a switcher between them. Otherwise it shows only your product's scheme. Without the `Artifact` tool, the skill writes a standalone HTML file.
 
 ## What it changes
 

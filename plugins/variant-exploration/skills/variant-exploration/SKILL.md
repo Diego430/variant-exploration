@@ -48,7 +48,7 @@ The level sets how many variants of each type to build. The default is 6 variant
 
 Every exploration includes at least one variant of each type, because even a narrow request benefits from seeing one distant option. If the user asks for another number, scale the mix to that number and keep this minimum. For example, 3 variants are always 1 Similar, 1 Different, and 1 Radical.
 
-The user's explicit request overrides the minimum, such as "no radical variants" or "only similar ones". If the user asks for only 2 variants, ask which 2 types they want. Label each variant with its type, so that the user can see the mix.
+The user's explicit request overrides the minimum, such as "no radical variants" or "only similar ones". If the user asks for only 2 variants, ask which 2 types they want. Label each variant with its type, so that the user can see the mix. Step 4 defines the full set of labels.
 
 ### 3. Recommend a delivery method
 
@@ -76,7 +76,16 @@ If the signals tie, recommend the in-app switcher at Similar or Moderate, and th
 
 First, write one sentence that records the current identity: real color values, fonts, layout, and surface treatment. Use values from the code, not impressions such as "clean". Similar variants keep this identity. Different variants keep its visual language but may change structure. Radical variants may leave it, and must explain why from the product's purpose.
 
-Then give each variant a short name and a one-line idea, such as "Scan-first: compresses each row so that users compare prices faster". Give each Similar and Different variant its own main axis:
+Then label each variant:
+
+- **Letter:** assign letters in build order, starting at A: A, B, C, and so on. The current version has no letter and is always "Current". Keep each letter fixed for the whole exploration, including after rework, so that the user can refer to a variant as "B" at any time. If a variant is replaced, the new variant takes the old letter.
+- **Name:** two to four words that state what changes compared with the current version, such as "Denser rows", "Cards instead of table", or "Price leads". The name states the change, not a quality, so avoid names such as "Cleaner" or "Modern". Two variants must not share a name.
+- **Idea:** one line that explains the change and why it helps, such as "Compresses each row so that users compare prices faster".
+- **Type tag:** a visible tag that shows how far the variant moves from the current version: Similar, Different, or Radical. Give each type its own consistent tag style, so that the user sees the mix at a glance. The current version has no type tag; label it "Reference".
+
+Show the letter, the name, and the type tag wherever the variant appears: in the plan, in the switcher or the Artifact, and in the final presentation.
+
+Give each Similar and Different variant its own main axis:
 
 - Hierarchy
 - Layout
@@ -115,7 +124,7 @@ If the real app cannot be reached, for example because a login blocks it, run th
 
 ### 6. Present the variants
 
-Tell the user how to open the exploration. Report each check as passed, failed, unavailable, or blocked, and do not present an unavailable check as passed. Then list the current version and each variant with its name, idea, and main trade-off. Give your own pick and the reason. Ask which variant they prefer. Combinations are welcome, such as the layout of B with the density of D.
+Tell the user how to open the exploration. Report each check as passed, failed, unavailable, or blocked, and do not present an unavailable check as passed. Then list the current version and each variant in letter order, with its letter, type tag, name, idea, and main trade-off. For example: "**B** `Different` Cards instead of table: shows each plan as a card so that users compare features faster. Trade-off: ...". Give your own pick by letter and the reason. Ask which variant they prefer, by letter. Combinations are welcome, such as the layout of B with the density of D.
 
 ### 7. Offer to apply the choice
 

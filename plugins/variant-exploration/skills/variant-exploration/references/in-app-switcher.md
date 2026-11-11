@@ -16,8 +16,9 @@ The exploration must be easy to remove completely, because it is temporary code 
 ## Switcher behavior
 
 - Render only in development, using the framework's own check. Production builds must render the original component and include no switcher.
-- Show "Current" and every variant as labeled buttons, with `aria-pressed` on the active one.
-- Show the active variant's name and one-line idea.
+- Show "Current" and every variant as buttons labeled with the variant letter, type tag, and name, such as "B `Different` Cards instead of table", with `aria-pressed` on the active one.
+- Show the active variant's letter, type tag, name, and one-line idea.
+- Use the variant letter as the query parameter value, such as `?variant=b`.
 - Let the user collapse the panel, so that it does not hide the design being judged.
 - Store the active variant in a URL query parameter, so that it survives a reload and can be linked.
 - Keep the active variant during in-app navigation when the target appears across pages, such as a sidebar or header. Internal links usually drop the query parameter, so restore it from temporary browser storage or add it to those links inside exploration code only.
@@ -34,8 +35,8 @@ The exploration must be easy to remove completely, because it is temporary code 
 ```tsx
 // variant-exploration: temporary exploration code, do not ship
 const options = [
-  { id: "current", name: "Current", idea: "Existing design", render: () => <Original {...props} /> },
-  { id: "a", name: "Scan-first", idea: "Compresses rows for faster comparison", render: () => <VariantA {...props} /> },
+  { id: "current", tag: "Reference", name: "Current", idea: "Existing design", render: () => <Original {...props} /> },
+  { id: "a", tag: "Similar", name: "Denser rows", idea: "Compresses rows for faster comparison", render: () => <VariantA {...props} /> },
 ];
 ```
 

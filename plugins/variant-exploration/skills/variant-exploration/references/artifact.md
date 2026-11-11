@@ -13,8 +13,16 @@ An Artifact only imitates the app, so fidelity comes from what you copy into it:
 
 - Reuse the real markup structure, CSS values, design tokens, icons, and font choices
 - Rebuild the current version first, and use it to check the match
-- Support light and dark modes if the product does
 - Include the surrounding context when it affects the judgment, such as a sidebar or page header
+
+## Match the product's color scheme
+
+The whole page, including its own header, labels, and controls, uses the product's color scheme, not a generic artifact theme. Take the real color values from the product's tokens or styles.
+
+- **Product has light and dark schemes:** define both, and add a visible light/dark switcher in the page header. Start in the product's default scheme. If the product follows the system setting, start from the viewer's system setting. The switcher changes the page chrome and every variant together.
+- **Product has one scheme:** use only that scheme. Do not add a dark or light alternative, do not add a switcher, and do not adapt to the viewer's system setting.
+
+This rule takes precedence over generic artifact guidance that asks every page to follow the viewer's system theme. If a tool requires both schemes for a single-scheme product, set both to the product's scheme.
 
 ## Protect real data
 
@@ -23,7 +31,8 @@ Use realistic sample content. Do not include secrets, internal URLs, customer da
 ## Page content
 
 - Put the current version first, labeled as the reference
-- Give each variant its name, one-line idea, and main trade-off
+- Give each variant its letter, type tag, name, one-line idea, and main trade-off. Make the letter large and the type tag visible on every variant, in both the side-by-side and the focused view
+- Let the user jump to a variant by its letter
 - Offer a side-by-side view and a focused view of one variant at a time
 - Make controls and main interactions work, when the interaction is part of the design
 - Keep the page usable at phone width, without horizontal page scroll
